@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
 import ROLE from '../common/role';
 import Context from '../context';
+import shopLogo from '../assest/shoplogo.PNG'
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user)
@@ -55,9 +56,9 @@ const Header = () => {
   return (
     <header className='h-16 shadow-md bg-white fixed w-full z-40'>
       <div className=' h-full container mx-auto flex items-center px-4 justify-between'>
-            <div className=''>
+            <div className='w-20 h-30 ml-20'>
                 <Link to={"/"}>
-                    <Logo w={90} h={50}/>
+                    <img src={shopLogo} alt='login icons'/>
                 </Link>
             </div>
 
@@ -97,7 +98,7 @@ const Header = () => {
                               <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Admin Panel</Link>
                             )
                           }
-                         
+                         <Link to={"/order"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Order</Link>
                         </nav>
                       </div>
                     )

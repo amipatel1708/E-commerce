@@ -24,6 +24,9 @@ const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
 const { uploadCategory } = require('../controller/category/uploadCategory')
 const deleteProduct = require('../controller/product/deleteProduct')
+const paymentController = require('../controller/order/paymentController')
+const webhooks = require('../controller/order/webhook')
+const orderController = require('../controller/order/order.controller')
 
 
 
@@ -60,8 +63,10 @@ router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 
 
 
-
-
+//payment
+router.post("/checkout",authToken,paymentController)
+router.post('/webhook',webhooks)
+router.get('/order-list',authToken,orderController)
 
 
 module.exports = router
